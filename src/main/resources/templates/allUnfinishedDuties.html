@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Duties</title>
+</head>
+<body>
+
+<div th:each="duty: ${tasks}">
+    <div th:text="|Id: ${duty.id} Tytuł: ${duty.title} Opis: ${duty.description} Data: ${duty.date} Status: ${duty.status} Kategoria: ${duty.category}|"></div>
+</div>
+
+</body>
+</html>

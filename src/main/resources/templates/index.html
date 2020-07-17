@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarzadzanie zadaniami</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<section class="row">
+    <div class="col"></div>
+    <div class="col-5">
+        <h2>
+            <a th:href="@{/allFinishedDuties}">Zadania zrobione</a> <br />
+            <a th:href="@{/allUnfinishedDuties}">Zadania do zrobienia</a>
+        </h2>
+        <h3>Dodaj zadanie do bazy danych</h3>
+        <form method="post" th:action="@{/add}" th:object="${newTask}">
+            Nazwa: <input type="text" th:field="*{title}" required class="form-control mb-1"> <br>
+            Opis: <input type="text" th:field="*{description}" required class="form-control mb-1"> <br>
+            Data: <input type="date" th:field="*{date}" required class="form-control mb-1"> <br>
+            Status :0 (do zrobienia) 1 (zrobione) <input type="number" th:field="*{status}" required
+                class="form-control mb-1"> <br>
+            Kategoria <select name="category">
+            <option th:each="enumCategory : ${categories}"
+                    th:value="${enumCategory}" th:text="${enumCategory}" th:field="*{category}"
+                    required="required"></option>
+        </select>
+            <input type="submit" value="Dodaj" />
+        </form>
+    </div>
+    <div class="col"></div>
+</section>
+</body>
+</html>
