@@ -1,4 +1,4 @@
-package domain;
+package com.example.zarzadzanie;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Duty {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
@@ -21,6 +21,15 @@ public class Duty {
     private Category category;
 
     public Duty(String title, String description, LocalDate date, int status, Category category) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.status = status;
+        this.category = category;
+    }
+
+    public Duty(Long id, String title, String description, LocalDate date, int status, Category category) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.date = date;

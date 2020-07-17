@@ -1,4 +1,4 @@
-package domain;
+package com.example.zarzadzanie;
 
 public enum Category {
     OBOWIAZKI_DOMOWE("Obowiazki domowe"),

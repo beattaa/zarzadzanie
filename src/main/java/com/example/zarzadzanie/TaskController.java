@@ -2,8 +2,7 @@ package com.example.zarzadzanie;
 
 import java.time.LocalDate;
 
-import domain.Category;
-import domain.Duty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TaskController {
 
-//    @Autowired
-    TaskService taskService = new TaskService();
+    @Autowired
+    TaskService taskService;
 
     @GetMapping("/")
     public String home(Model model) {

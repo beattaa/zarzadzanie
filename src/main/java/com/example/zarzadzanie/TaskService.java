@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.*;
 import javax.transaction.Transactional;
 
-import domain.Duty;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +17,7 @@ public class TaskService {
     private EntityManager entityManager;
 
     public List<Duty> fetchAllFinishedDuties() {
+//                EntityManager entityManager = entityManagerFactory.createEntityManager();
         TypedQuery<Duty> selectQuery = entityManager.createQuery("SELECT d FROM Duty d WHERE d.status=1", Duty.class);
         return selectQuery.getResultList();
     }
